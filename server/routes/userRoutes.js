@@ -2,6 +2,14 @@ import express from 'express';
 import {registerUser, loginUser, userCredits, paymentRazorpay, verifyRazorpay} from '../controllers/userController.js';
 import userAuth from '../middlewares/auth.js';
 
+const cors = require('cors');
+
+// Add this BEFORE your routes
+app.use(cors({
+  origin: 'https://imagify-client-n0kg.onrender.com', // Your frontend URL
+  credentials: true,
+  optionsSuccessStatus: 200
+}));
 
 const userRouter = express.Router();
 
